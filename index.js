@@ -2,16 +2,33 @@
 
 const express = require('express')
 const connectDB = require('./config/db')
+const cors = require('cors')
+
 const app = express()
 
 // 2 MIDDLEWARES
 
+// VARIABLES DE ENTORNO
 require('dotenv').config()
 
+// CONEXIÓN A DB
 connectDB()
+
+// Habilitar CORS
+app.use(cors())
+
 
 // 3 RUTEO
 
+// API
+app.use('/api/proyectos', require('./routes/proyectos'))
+app.use('/api/chilaquiles', require('./routes/chilaquiles'))
+
+
+// MONITOREO (PARA VER QUE SÍ FUNCIONE)
+app.get("/", (req, res) => {
+    res.send("Hola mundo")
+})
 
 
 
