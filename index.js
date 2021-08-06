@@ -8,7 +8,7 @@ const app = express()
 
 require('dotenv').config()
 
-
+connectDB()
 
 // 3 RUTEO
 
