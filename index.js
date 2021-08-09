@@ -18,11 +18,16 @@ connectDB()
 app.use(cors())
 
 
+//ACTIVAR BODY PARSER
+app.use(express.json({extended: true}))
+
+
 // 3 RUTEO
 
 // API
 app.use('/api/proyectos', require('./routes/proyectos'))
 app.use('/api/chilaquiles', require('./routes/chilaquiles'))
+app.use('/api/vitamins', require('./routes/vitamins'))
 
 
 // MONITOREO (PARA VER QUE SÍ FUNCIONE)
